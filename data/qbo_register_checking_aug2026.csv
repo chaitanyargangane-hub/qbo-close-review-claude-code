@@ -1,0 +1,16 @@
+date,type,ref,payee,account,amount
+2026-07-31,Opening,,,,54864.41
+2026-08-01,Expense,,Hartwell Mutual,Insurance Expense,-3600.00
+2026-08-01,Expense,,Harbor Properties,Rent Expense,-3200.00
+2026-08-05,Payment,INV-1179,Lumen Health Clinics,Accounts Receivable,6800.00
+2026-08-08,Check,1041,Dana Whitlock,Contract Labor,-950.00
+2026-08-12,Expense,,Adobe,Software Subscriptions,-659.88
+2026-08-12,Expense,,Adobe,Software Subscriptions,-659.88
+2026-08-14,Expense,,Gusto,Payroll Expense,-7420.00
+2026-08-15,Expense,,Online transfer,Miscellaneous Expense,-2400.00
+2026-08-18,Payment,INV-1183,Oakridge Realty,Accounts Receivable,5250.00
+2026-08-22,Deposit,,Stripe,Uncategorized Income,4212.50
+2026-08-25,Expense,,Google,Software Subscriptions,-86.00
+2026-08-27,Check,1045,Pixel Lab Printing,Printing & Production,-845.50
+2026-08-28,Expense,,M. Reyes,Payroll Expense,-1500.00
+2026-08-31,Payment,INV-1185,Tidewater Brewing,Accounts Receivable,3150.00

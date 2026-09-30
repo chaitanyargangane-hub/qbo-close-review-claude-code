@@ -1,0 +1,6 @@
+Copperfield Design Studio LLC  (FICTIONAL COMPANY - demonstration data only)
+Single-member LLC, owner: Marisol Reyes. Books kept in QuickBooks Online.
+The owner is not on payroll; employees are paid through Gusto on the 14th.
+Bank: Operating Checking ending 2204. Card: Amex Business ending 3008 (paid from checking).
+Stripe is used for card payments on invoices; payouts land in checking net of fees.
+July 2026 books were closed and reconciled.

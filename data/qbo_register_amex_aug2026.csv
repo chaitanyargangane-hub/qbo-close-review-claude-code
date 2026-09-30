@@ -1,0 +1,10 @@
+date,type,payee,account,amount_charge_positive
+2026-07-31,Opening,,,7891.10
+2026-08-04,Expense,Figma,Software Subscriptions,180.00
+2026-08-09,Expense,Staples,Office Supplies,312.45
+2026-08-19,Expense,The Grove Bistro,Office Supplies,86.40
+2026-08-21,Expense,Delta Air Lines,Travel,642.80
+2026-08-24,Expense,Staples,Office Supplies,129.00
+2026-08-26,Expense,Uber,Travel,38.60
+2026-08-29,Expense,Amazon,Office Supplies,219.95
+2026-08-31,Expense,Vercel,Hosting,212.00
