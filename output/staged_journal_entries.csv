@@ -1,0 +1,22 @@
+je_id,finding_id,account,debit,credit,memo,status
+JE01,F01,Uncategorized Income,4212.50,,Apply Stripe payout ST-8H2K91 to INV-1187 Brightwell & Co; reverse Uncategorized Income; record Stripe fee,STAGED
+JE01,F01,Merchant Fees,127.50,,Apply Stripe payout ST-8H2K91 to INV-1187 Brightwell & Co; reverse Uncategorized Income; record Stripe fee,STAGED
+JE01,F01,Accounts Receivable,,4340.00,Apply Stripe payout ST-8H2K91 to INV-1187 Brightwell & Co; reverse Uncategorized Income; record Stripe fee,STAGED
+JE02,F02,Amex x3008,2400.00,,Reclass 2026-08-15 online transfer to Amex x3008 from Miscellaneous Expense to card payment,STAGED
+JE02,F02,Miscellaneous Expense,,2400.00,Reclass 2026-08-15 online transfer to Amex x3008 from Miscellaneous Expense to card payment,STAGED
+JE03,F03,Owner's Draw,1500.00,,Reclass 2026-08-28 transfer to M. Reyes from Payroll Expense to Owner's Draw - pending client confirmation,STAGED
+JE03,F03,Payroll Expense,,1500.00,Reclass 2026-08-28 transfer to M. Reyes from Payroll Expense to Owner's Draw - pending client confirmation,STAGED
+JE04,F04,Checking x2204,659.88,,Remove duplicate Adobe Creative Cloud entry dated 2026-08-12 (cleared bank once),STAGED
+JE04,F04,Software Subscriptions,,659.88,Remove duplicate Adobe Creative Cloud entry dated 2026-08-12 (cleared bank once),STAGED
+JE05,F05,Bank Service Charges,35.00,,Record August bank monthly service fee per statement 2026-08-31,STAGED
+JE05,F05,Checking x2204,,35.00,Record August bank monthly service fee per statement 2026-08-31,STAGED
+JE06,F06,Checking x2204,4.12,,Record August bank interest per statement 2026-08-31,STAGED
+JE06,F06,Interest Income,,4.12,Record August bank interest per statement 2026-08-31,STAGED
+JE07,F07,Prepaid Insurance,3300.00,,Hartwell Mutual GL-55120 premium 2026-08-01 to 2027-07-31: defer 11 of 12 months to Prepaid Insurance,STAGED
+JE07,F07,Insurance Expense,,3300.00,Hartwell Mutual GL-55120 premium 2026-08-01 to 2027-07-31: defer 11 of 12 months to Prepaid Insurance,STAGED
+JE08,F11,Amex x3008,258.00,,Staples 2026-08-24 credit entered as charge: reverse +129.00 and record -129.00,STAGED
+JE08,F11,Office Supplies,,258.00,Staples 2026-08-24 credit entered as charge: reverse +129.00 and record -129.00,STAGED
+JE09,F12,Meals,86.40,,Recode The Grove Bistro 2026-08-19 from Office Supplies to Meals,STAGED
+JE09,F12,Office Supplies,,86.40,Recode The Grove Bistro 2026-08-19 from Office Supplies to Meals,STAGED
+JE10,F15,Accounts Payable,1850.00,,"Void duplicate bill B-2204 (repeats B-2201, Northline Print invoice 7731)",STAGED
+JE10,F15,Contract Labor,,1850.00,"Void duplicate bill B-2204 (repeats B-2201, Northline Print invoice 7731)",STAGED
