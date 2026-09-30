@@ -16,6 +16,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 OUT = ROOT / "output" / "recon_checking.md"
+STAGED = ROOT / "output" / "staged_journal_entries.csv"
+STAGED_ACCOUNT = "Checking x2204"
 
 BANK_FILE = "bank_statement_2204_aug2026.csv"
 QBO_FILE = "qbo_register_checking_aug2026.csv"
@@ -273,6 +275,10 @@ def main():
         L.append(f"| {b['date']} | {b['description']} | {q['date']} | {label(q)} | {fmt(b['_amount'])} |")
     L.append("")
 
+    proforma = pro_forma(book_balance, adjusted_bank)
+    if proforma:
+        L.extend(proforma["report"])
+
     OUT.parent.mkdir(exist_ok=True)
     OUT.write_text("\n".join(L))
 
@@ -283,7 +289,41 @@ def main():
     print(f"  Book balance (QBO)      {fmt(book_balance):>12}")
     print(f"  Unreconciled difference {fmt(difference):>12}   -> {status}")
     print(f"  Explained by book-side items {fmt(explained)}; unexplained {fmt(unexplained)}")
+    if proforma:
+        print(f"  Pro forma after staged entries: book {fmt(proforma['book'])}, "
+              f"difference {fmt(proforma['difference'])} (entries not posted)")
     print(f"Wrote {OUT.relative_to(ROOT)}")
+
+
+def pro_forma(book_balance, adjusted_bank):
+    """Re-run the difference as if the staged entries were posted (asset: debit increases)."""
+    if not STAGED.exists():
+        return None
+    with open(STAGED, newline="") as f:
+        lines = [r for r in csv.DictReader(f) if r["account"] == STAGED_ACCOUNT and r["status"] == "STAGED"]
+    effect = sum(money(r["debit"] or 0) - money(r["credit"] or 0) for r in lines)
+    book = book_balance + effect
+    difference = adjusted_bank - book
+    R = ["", "## Pro forma — as if the staged entries were posted", ""]
+    R.append(f"Source: `output/staged_journal_entries.csv`, lines for account `{STAGED_ACCOUNT}`. "
+             "These entries are STAGED, not posted; the QBO balance above is unchanged.")
+    R.append("")
+    R.append("| JE | Finding | Memo | Effect on book |")
+    R.append("|---|---|---|---:|")
+    for r in lines:
+        R.append(f"| {r['je_id']} | {r['finding_id']} | {r['memo']} | "
+                 f"{fmt(money(r['debit'] or 0) - money(r['credit'] or 0))} |")
+    R.append(f"| | | **Total** | **{fmt(effect)}** |")
+    R.append("")
+    R.append(f"Pro forma book = {fmt(book_balance)} + {fmt(effect)} = {fmt(book)}.")
+    R.append(f"Pro forma difference = adjusted bank {fmt(adjusted_bank)} − {fmt(book)} = **{fmt(difference)}**.")
+    R.append("")
+    if difference == 0:
+        R.append("The account will reconcile (difference 0.00) once these entries are approved and posted, "
+                 "with the timing items above still outstanding. Re-run after posting to confirm.")
+    else:
+        R.append("A difference remains after the staged entries; the account would still not reconcile.")
+    return {"book": book, "difference": difference, "report": R}
 
 
 def evidence_july(row):

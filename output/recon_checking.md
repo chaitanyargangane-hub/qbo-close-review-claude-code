@@ -86,3 +86,20 @@ Matching confirms the cash amount and date only. It does not confirm the QBO acc
 | 2026-08-22 | STRIPE TRANSFER ST-8H2K91 | 2026-08-22 | Deposit Stripe (Uncategorized Income) | 4,212.50 |
 | 2026-08-25 | GOOGLE *WORKSPACE | 2026-08-25 | Expense Google (Software Subscriptions) | -86.00 |
 | 2026-08-28 | ONLINE TRANSFER TO M REYES X7710 | 2026-08-28 | Expense M. Reyes (Payroll Expense) | -1,500.00 |
+
+
+## Pro forma — as if the staged entries were posted
+
+Source: `output/staged_journal_entries.csv`, lines for account `Checking x2204`. These entries are STAGED, not posted; the QBO balance above is unchanged.
+
+| JE | Finding | Memo | Effect on book |
+|---|---|---|---:|
+| JE04 | F04 | Remove duplicate Adobe Creative Cloud entry dated 2026-08-12 (cleared bank once) | 659.88 |
+| JE05 | F05 | Record August bank monthly service fee per statement 2026-08-31 | -35.00 |
+| JE06 | F06 | Record August bank interest per statement 2026-08-31 | 4.12 |
+| | | **Total** | **629.00** |
+
+Pro forma book = 52,955.65 + 629.00 = 53,584.65.
+Pro forma difference = adjusted bank 53,584.65 − 53,584.65 = **0.00**.
+
+The account will reconcile (difference 0.00) once these entries are approved and posted, with the timing items above still outstanding. Re-run after posting to confirm.

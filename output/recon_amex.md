@@ -83,3 +83,19 @@ Matching confirms the amount and date only, not the QBO account coding.
 ## Coding observations (do not affect the balance)
 
 - qbo_register_amex_aug2026.csv line 5: 2026-08-19 Expense The Grove Bistro (Office Supplies) 86.40 — Restaurant charge coded to Office Supplies; likely Meals. Needs accountant decision on category.
+
+
+## Pro forma — as if the staged entries were posted
+
+Source: `output/staged_journal_entries.csv`, lines for account `Amex x3008`. These entries are STAGED, not posted; the QBO balance above is unchanged. For the card, a debit reduces the amount owed.
+
+| JE | Finding | Memo | Effect on book |
+|---|---|---|---:|
+| JE02 | F02 | Reclass 2026-08-15 online transfer to Amex x3008 from Miscellaneous Expense to card payment | -2,400.00 |
+| JE08 | F11 | Staples 2026-08-24 credit entered as charge: reverse +129.00 and record -129.00 | -258.00 |
+| | | **Total** | **-2,658.00** |
+
+Pro forma book = 9,712.30 + (-2,658.00) = 7,054.30.
+Pro forma difference = adjusted statement 7,054.30 − 7,054.30 = **0.00**.
+
+The card will reconcile (difference 0.00) once these entries are approved and posted, provided the Vercel 212.00 charge appears on the September statement (F13). Re-run after posting to confirm.
